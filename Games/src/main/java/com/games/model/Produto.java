@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.games.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -33,7 +32,7 @@ import jakarta.validation.constraints.Size;
 		private String titulo;
 		
 		@NotBlank (message = "ATENÇÃO! \nO campo é de preenchimento obrigatório")
-		@Size (min=100, max=1000, message= "ATENÇÃO! \nO campo é de preenchimento obrigatório")
+		@Size (min=10, max=1000, message= "ATENÇÃO! \nO campo é de preenchimento obrigatório")
 		private String texto;
 		
 		@UpdateTimestamp //o Spring irá obter a data e horário do sistema operacional e inserir no atributo data toda vez que um obejeto for criado
@@ -42,8 +41,14 @@ import jakarta.validation.constraints.Size;
 		 @ManyToOne
 			@JsonIgnoreProperties("produto")
 			private Categoria categoria;
+		 @ManyToOne
+			@JsonIgnoreProperties("produto")
+			private Usuario usuario;
+		 
+		 
 		public Long getId() {
 			return id;
+			
 		}
 
 		public void setId(Long id) {
@@ -81,6 +86,17 @@ import jakarta.validation.constraints.Size;
 		public void setCategoria(Categoria categoria) {
 			this.categoria = categoria;
 		}
+
+		public Usuario getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+
+		
+		
 		
 		
 		

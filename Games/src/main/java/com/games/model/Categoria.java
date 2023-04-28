@@ -2,7 +2,7 @@ package com.games.model;
 
 import java.util.List;
 
-import com.games.model.Produto;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;

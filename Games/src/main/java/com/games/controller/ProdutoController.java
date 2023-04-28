@@ -18,15 +18,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.games.repository.CategoriaRepository;
 import com.games.model.Produto;
+import com.games.repository.CategoriaRepository;
 import com.games.repository.ProdutoRepository;
 
 import jakarta.validation.Valid;
 
 @RestController // define que é uma classe controladora e que será composta por URL -> endereço de requisição (endpoints),
 //verbos -> quais métodos HTTP serão usados e corpo da requisição @RequestBody -> objetos que contem dados que serão
-//persistidos no banco de dados 
+// persistidos no banco de dados 
 @RequestMapping("/produtos") // mapeia as requisições - define a URL padrão do Recurso. EX: (http://localhost:8080/postagens)
 
 @CrossOrigin (origins ="*", allowedHeaders = "*")// essa anotação permite o recebimento de requisições fora do dominio 8080.
@@ -94,6 +94,3 @@ public class ProdutoController {
 		produtoRepository.deleteById(id);
 }
 }
-
-
-
